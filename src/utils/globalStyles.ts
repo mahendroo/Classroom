@@ -81,7 +81,7 @@ export const globalStyles = StyleSheet.create({
 		color: colors.primary_action_text_theme,
 	},
 	subtitle: {
-		fontSize: fontSize.title_size,
+		fontSize: fontSize.subtitle_size,
 		fontFamily: fonts.primary_semi_bold_font,
 		color: colors.subtitle_text_theme,
 	},

@@ -3,5 +3,6 @@
 // };
 
 export const images = {
-	headerBackIcon: require("../../assets/images/header_back_icon.png"),
+	filterIcon: require("../../assets/images/filter.png"),
+	moreOptionsIcon: require("../../assets/images/more_options.png"),
 };

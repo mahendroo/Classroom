@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import UserReducer from "../reducers/userReducer";
+import UIReducer from "../reducers/UIReducer";
 
 export default combineReducers(
 	Object.assign({
-		UserReducer,
+		UIReducer,
 	}),
 );

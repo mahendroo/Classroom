@@ -1,4 +1,4 @@
-const base_theme_color = "#C2C2C2";
+const base_theme_color = "#5b39c6";
 const secondary_base_theme_color = "#000000";
 
 export const colors = {
@@ -16,7 +16,7 @@ export const colors = {
 
 	// Clickable Text Color
 	primary_action_text_theme: base_theme_color,
-	secondary_action_text_theme: base_theme_color,
+	secondary_action_text_theme: "#C2C2C2",
 
 	// Button Text Color
 	primary_action_button_text_theme: base_theme_color,
@@ -34,4 +34,9 @@ export const colors = {
 	modal_background: "rgba(0,0,0,0.8)",
 	dot_background: "#E05CB4",
 	text_color: "#152250",
+
+	// Student Card
+	student_name_color: secondary_base_theme_color,
+	student_id_color: 'orange',
+	card_background_color: 'white'
 };

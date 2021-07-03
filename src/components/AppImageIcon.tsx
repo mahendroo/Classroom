@@ -1,6 +1,22 @@
 import React from "react";
+import { GestureResponderEvent, ImageSourcePropType } from "react-native";
 import { Image, Pressable } from "react-native";
+import { emptyFunction } from "../utils/globalFunctions";
 import { globalStyles } from "../utils/globalStyles";
+
+export const AppImageIcon = ({
+	onPress = emptyFunction,
+	wrapperStyle = globalStyles.iconWrapper,
+	iconStyle = globalStyles.iconStyle,
+	image,
+}: AppImageProps) => {
+	return (
+		<Pressable onPress={onPress} style={({ pressed }) => [wrapperStyle, { opacity: pressed ? 0.4 : 1 }]}>
+
+			<Image source={image} style={iconStyle} resizeMode={"contain"} />
+		</Pressable >
+	);
+};
 
 /**
  *
@@ -12,15 +28,9 @@ import { globalStyles } from "../utils/globalStyles";
  * @param iconStyle : For Icon Style of Image
  */
 
-export const AppImageIcon = ({
-	onPress,
-	wrapperStyle = globalStyles.iconWrapper,
-	iconStyle = globalStyles.iconStyle,
-	image,
-}: any) => {
-	return (
-		<Pressable onPress={onPress} style={wrapperStyle}>
-			<Image source={image} style={iconStyle} resizeMode={"contain"} />
-		</Pressable>
-	);
-};
+export interface AppImageProps {
+	onPress?: null | ((event: GestureResponderEvent) => void),
+	wrapperStyle?: object,
+	iconStyle?: object,
+	image: ImageSourcePropType
+}

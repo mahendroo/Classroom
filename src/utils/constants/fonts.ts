@@ -16,7 +16,7 @@ export const fonts = {
 };
 
 export const fontSize = {
-	title_size: 24,
+	title_size: 22,
 	subtitle_size: 18,
 	header_title_size: 28,
 	form_title_size: 24,

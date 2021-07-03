@@ -2,9 +2,9 @@ import { Platform } from "react-native";
 import { appConstants } from "./constants/appConstants";
 import { colors } from "./constants/colors";
 
-const enum PLATFORMS {
-    IOS = "ios",
-    ANDROID = "android"
+enum PLATFORMS {
+	IOS = "ios",
+	ANDROID = "android"
 }
 
 export const isAndroid = () => {
@@ -25,7 +25,7 @@ export const elevationShadowStyle = (elevation: any) => {
 	};
 };
 
-export const emptyFunction = () => {};
+export const emptyFunction = () => { };
 
 export const objToFormData = (rawData: any) => {
 	let formData: FormData = new FormData();

@@ -3,6 +3,12 @@ export const dimensConstants = {
 	standard_margin_horizontal: 20,
 	standard_margin_vertical: 10,
 
+	// Header
+	header_height: 64,
+
+	// Cards
+	standard_card_height: 175,
+
 	// Button
 	border_radius: 10,
 	button_height: 50,
