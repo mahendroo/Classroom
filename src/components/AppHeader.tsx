@@ -1,5 +1,5 @@
 import React from "react";
-import { GestureResponderEvent, ImageSourcePropType, StyleSheet } from "react-native";
+import { GestureResponderEvent, ImageSourcePropType, ImageStyle, StyleProp, StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 import { colors } from "../utils/constants/colors";
 import { dimensConstants } from "../utils/constants/dimensConstant";
@@ -54,5 +54,5 @@ export interface AppHeaderProps {
 	onRightActionPress?: null | ((event: GestureResponderEvent) => void),
 	rightActionImage?: ImageSourcePropType,
 	rightActionText?: string
-	rightActionContainerStyle?: object,
+	rightActionContainerStyle?: StyleProp<ImageStyle>,
 }

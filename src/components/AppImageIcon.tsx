@@ -1,5 +1,6 @@
 import React from "react";
-import { GestureResponderEvent, ImageSourcePropType } from "react-native";
+import { GestureResponderEvent, ImageSourcePropType, StyleProp, ViewStyle } from "react-native";
+import { ImageStyle } from "react-native";
 import { Image, Pressable } from "react-native";
 import { emptyFunction } from "../utils/globalFunctions";
 import { globalStyles } from "../utils/globalStyles";
@@ -9,9 +10,10 @@ export const AppImageIcon = ({
 	wrapperStyle = globalStyles.iconWrapper,
 	iconStyle = globalStyles.iconStyle,
 	image,
+	disabled = false
 }: AppImageProps) => {
 	return (
-		<Pressable onPress={onPress} style={({ pressed }) => [wrapperStyle, { opacity: pressed ? 0.4 : 1 }]}>
+		<Pressable onPress={onPress} style={({ pressed }) => [wrapperStyle, { opacity: pressed ? 0.4 : 1 }]} disabled={disabled}>
 
 			<Image source={image} style={iconStyle} resizeMode={"contain"} />
 		</Pressable >
@@ -30,7 +32,8 @@ export const AppImageIcon = ({
 
 export interface AppImageProps {
 	onPress?: null | ((event: GestureResponderEvent) => void),
-	wrapperStyle?: object,
-	iconStyle?: object,
-	image: ImageSourcePropType
+	wrapperStyle?: StyleProp<ViewStyle>,
+	iconStyle?: StyleProp<ImageStyle>,
+	image: ImageSourcePropType,
+	disabled?: boolean
 }

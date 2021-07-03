@@ -22,7 +22,7 @@ export class StudentCard extends Component<Readonly<StudentCardProps>, Readonly<
 
                         <View style={styles.studentNameIdContainerStyle}>
                             <Text style={styles.studentNameCardStyle} numberOfLines={1}>{studentInfo.first_name + " " + studentInfo.last_name}</Text>
-                            <Text style={styles.studentIdCardStyle} numberOfLines={1}>{`${STRING_CONSTANTS.label_student_id} ${studentInfo.student?.student_id}`}</Text>
+                            <Text style={styles.studentIdCardStyle} numberOfLines={1}>{`${STRING_CONSTANTS.label_student_id}: ${studentInfo.student?.student_id}`}</Text>
                         </View>
 
                         <AppImageIcon
