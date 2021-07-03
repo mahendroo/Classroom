@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         overflow: "hidden",
         // borderTopLeftRadius: 50,
         // borderTopRightRadius: 50,
-        backgroundColor: colors.primary_background_color,
+        backgroundColor: colors.card_background_color,
         flex: 1,
     },
     flatListStyle: {

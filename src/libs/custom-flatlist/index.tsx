@@ -1,7 +1,6 @@
 import React, { Component, forwardRef } from "react";
 import {
 	View,
-	ActivityIndicator,
 	Text,
 	TouchableOpacity,
 	SectionList,
@@ -17,9 +16,13 @@ import { styles } from "./styles";
 import { FLATLIST_REQUEST } from "./utils";
 import { isNotEmpty } from "../../utils/globalFunctions";
 import { AppActivityIndicator } from "../../components/AppActivityIndicator";
+import { apiConstants } from "../../utils/constants/apiConstants";
+
+type NullOrUndefined = null | undefined
 
 class CustomFlatList extends Component<CustomFlatlistProps, CustomFlatListState> {
-	nextUrl: string | undefined;
+	nextUrl: string | NullOrUndefined;
+	nextPage: number | NullOrUndefined;
 	requestInProgress: boolean = false;
 
 	static defaultProps = defaultProps;
@@ -49,7 +52,7 @@ class CustomFlatList extends Component<CustomFlatlistProps, CustomFlatListState>
 	 * Check if Pagination is complete or not
 	 */
 	hasMoreData = () => {
-		return isNotEmpty(this.nextUrl);
+		return isNotEmpty(this.nextUrl) || isNotEmpty(this.nextPage);
 	}
 
 	/**
@@ -61,10 +64,12 @@ class CustomFlatList extends Component<CustomFlatlistProps, CustomFlatListState>
 			switch (typeOfRequest) {
 				case FLATLIST_REQUEST.REFRESH:
 					this.nextUrl = undefined;
+					this.nextPage = 1;
 					this.setState({ refreshing: true });
 					break;
 				case FLATLIST_REQUEST.FIRST_TIME:
 					this.nextUrl = undefined;
+					this.nextPage = 1;
 					break;
 			}
 			this.setState({ isRequesting: true });
@@ -77,12 +82,12 @@ class CustomFlatList extends Component<CustomFlatlistProps, CustomFlatListState>
 					this.props.requestUrl,
 					typeOfRequest,
 					this.nextUrl,
-					this.props.requestData,
+					{ ...this.props.requestData, [apiConstants.limit_key]: "10", [apiConstants.page_key]: this.nextPage?.toString() },
 					this.props.requestParams,
 					this.props.requestPath,
-					(listData: any, nextUrl: string) => {
+					(listData: any, nextUrl: string | NullOrUndefined, nextPage: number | NullOrUndefined) => {
 						this.requestInProgress = false;
-						this.setData(listData, typeOfRequest, nextUrl);
+						this.setData(listData, typeOfRequest, nextUrl, nextPage);
 					},
 					(errorMessage: string) => {
 						this.requestInProgress = false;
@@ -105,9 +110,11 @@ class CustomFlatList extends Component<CustomFlatlistProps, CustomFlatListState>
 	 * @param dataObject Data received from API
 	 * @param typeOfRequest Type of API request made
 	 * @param nextUrl Next Url for Paginated data
+	 * @param nextPage Next Page Number to pass for pagination and filter
 	 */
-	setData = (dataObject: any, typeOfRequest: number, nextUrl: string) => {
+	setData = (dataObject: any, typeOfRequest: number, nextUrl: string | NullOrUndefined, nextPage: number | NullOrUndefined) => {
 		this.nextUrl = nextUrl;
+		this.nextPage = nextPage
 		let data: any;
 		let tempSectionHeader = this.state.sectionHeader && typeOfRequest === FLATLIST_REQUEST.PAGINATION ? [...this.state.sectionHeader] : [];
 		let tempSectionData = this.state.sectionData && typeOfRequest === FLATLIST_REQUEST.PAGINATION ? [...this.state.sectionData] : [];

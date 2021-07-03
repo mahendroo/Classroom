@@ -7,21 +7,6 @@ import { prepareApiRequest } from "./index";
 import { isDataPaginating, shouldShowTopLoaderOnListing } from "../libs/custom-flatlist/utils";
 import { API_HEADERS, API_REQUEST } from "./collections";
 
-// export const doSignIn = (data: any, succesCallback: Function, errorCallback: Function) => {
-// 	return (dispatch: Function) =>
-// 		commonApiWrapper(
-// 			dispatch,
-// 			endPoints.sign_in,
-// 			apiConstants.get_request_type,
-// 			apiConstants.raw_data_type,
-// 			null,
-// 			data,
-// 			null,
-// 			succesCallback,
-// 			errorCallback,
-// 		);
-// };
-
 export const flatlistWrapper = (
 	url: string,
 	typeOfRequest: number,
@@ -42,14 +27,19 @@ export const flatlistWrapper = (
 
 		prepareApiRequest(
 			url,
-			API_REQUEST.GET,
+			API_REQUEST.POST,
 			API_HEADERS.TYPE_RAW_DATA,
 			params,
 			body,
 			(response: any) => {
+				let nextPage = undefined;
+				if (body[apiConstants.page_key] < response[apiConstants.data_key][apiConstants.pages_key])
+					nextPage = response[apiConstants.data_key][apiConstants.page_key] + 1
+
 				succesCallback(
-					response[apiConstants.data_key],
-					response[apiConstants.next_page_url_key],
+					response[apiConstants.data_key][apiConstants.docs_key],
+					response[apiConstants.data_key][apiConstants.next_page_url_key],
+					nextPage,
 				);
 				if (shouldShowTopLoaderOnListing(typeOfRequest)) {
 					showLoader(false, dispatch);
@@ -61,12 +51,12 @@ export const flatlistWrapper = (
 	};
 };
 
-const commonApiWrapper = (
+export const commonApiWrapper = (
 	dispatch: Function,
 	url: string,
 	apiRequestType: String,
 	contentType: String,
-	path: string,
+	path: string | null,
 	requestData: any,
 	params: any,
 	successCallback: Function,

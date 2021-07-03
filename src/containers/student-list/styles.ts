@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     studentCardContainerStyle: {
-        margin: dimensConstants.standard_margin_horizontal,
+        marginVertical: dimensConstants.standard_margin_horizontal,
         ...elevationShadowStyle(8),
         height: 160,
         backgroundColor: colors.card_background_color,
@@ -29,16 +29,27 @@ export const styles = StyleSheet.create({
     },
     shortPropertyInfoTextStyle: {
         alignSelf: 'center',
-        marginTop: dimensConstants.standard_padding
+        // marginTop: dimensConstants.standard_padding
     },
     shortPropertyInfoLabelStyle: {
         ...globalStyles.subtitle,
         color: colors.primary_action_text_theme,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        // marginTop: dimensConstants.standard_padding
     },
     shortPropertyInfoValueStyle: {
         ...globalStyles.subtitle,
         color: colors.secondary_action_text_theme,
+        fontSize: 17,
+    },
+    shortPropertyInfoBorderViewStyle: {
+        ...globalStyles.subtitle,
+        backgroundColor: colors.secondary_action_text_theme,
+        width: 1,
+        opacity: 0.8,
+        alignSelf: 'center',
+        borderRadius: 8,
+        height: "80%",
     },
     studentNameCardStyle: {
         ...globalStyles.title,
@@ -47,6 +58,7 @@ export const styles = StyleSheet.create({
     studentIdCardStyle: {
         ...globalStyles.subtitle,
         color: colors.student_id_color,
+        fontSize: 17,
         marginTop: 5,
     },
     studentCardMoreOptionContainerStyle: {

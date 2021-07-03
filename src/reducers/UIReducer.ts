@@ -19,5 +19,23 @@ export default createReducer(initialState, {
             [appConstants.enable_loader]: false,
         };
     },
+    [ACTION_CONSTANTS.ERROR_HANDLER](state: any, action: any) {
+        return {
+            ...state,
+            [appConstants.enable_loader]: false,
+        };
+    },
+    [ACTION_CONSTANTS.EXCEPTION_HANDLER](state: any, action: any) {
+        return {
+            ...state,
+            [appConstants.enable_loader]: false,
+        };
+    },
+    [ACTION_CONSTANTS.CLASS_DETAIL_FETCHED](state: any, action: any) {
+        return {
+            ...state,
+            [appConstants.enable_loader]: false,
+        };
+    }
 
 });

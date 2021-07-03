@@ -66,6 +66,45 @@ export interface StudentCardProps {
     index: number
 }
 
+export interface ClassSectionType {
+    _id: StringOrNull,
+    section: StringOrNull,
+    total_student: number,
+    createdAt: string,
+    updatedAt: string,
+}
+
+export interface SubjectType {
+    _id: StringOrNull,
+    subject_name: StringOrNull,
+    __v: number,
+}
+
+export interface CampusType {
+    _id: StringOrNull,
+    campus_name: StringOrNull,
+    __v: number,
+}
+
+export interface IndividualClassInfoType {
+    _id: string,
+    class_name: string,
+    total_section: StringOrNull,
+    total_class_student: number,
+    section: Array<ClassSectionType>
+}
+
+export interface ClassDataType {
+    classes: Array<IndividualClassInfoType>,
+    subjects: Array<SubjectType>,
+    campus: Array<CampusType>
+}
+
+export interface ClassDetailResponse {
+    data: ClassDataType,
+    status: number,
+    message: StringOrNull,
+}
 
 export const sampleStudentInfo: StudentAllInfoType = {
     "soft_deleted": false,

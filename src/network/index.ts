@@ -125,7 +125,7 @@ const requestApi = (
 	promise!!
 		.then((response: any) => {
 			// Success Condition
-			if (true) {
+			if (response.status) {
 				if (successCallback) {
 					successCallback(response);
 				}
