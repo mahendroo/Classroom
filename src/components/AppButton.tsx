@@ -6,7 +6,6 @@ import { colors } from "../utils/constants/colors";
 import { dimensConstants } from "../utils/constants/dimensConstant";
 import { fontSize } from "../utils/constants/fonts";
 import { emptyFunction } from "../utils/globalFunctions";
-import { globalStyles } from "../utils/globalStyles";
 
 export const AppButton = ({
 	onPress = emptyFunction,

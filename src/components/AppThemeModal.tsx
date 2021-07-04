@@ -23,7 +23,7 @@ export class AppThemeModal extends Component<AppThemeModalProps, AppThemeModalSt
     constructor(props: AppThemeModalProps) {
         super(props);
         this.state = {
-            panY: new Animated.Value(200),
+            panY: new Animated.Value(0),
         };
 
         this.initAnimation();

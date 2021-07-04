@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../utils/constants/colors";
 import { dimensConstants } from "../../utils/constants/dimensConstant";
 import { fontSize } from "../../utils/constants/fonts";
+import { globalStyles } from "../../utils/globalStyles";
 
 export const styles = StyleSheet.create({
     filterOptionsInputWrapper: {
@@ -13,12 +14,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     draggableViewStyle: {
-        width: 50,
-        height: 5,
-        borderRadius: 4,
-        backgroundColor: colors.secondary_action_text_theme,
-        alignSelf: 'center',
-        marginVertical: dimensConstants.standard_margin_vertical
+        ...globalStyles.draggableViewStyle
     },
     filterHeaderContainerStyle: {
         flexDirection: 'row',

@@ -5,7 +5,7 @@ export const STRING_CONSTANTS = {
 	app_name: Config.APP_NAME,
 	ok_text: "ok",
 
-	flatlist_default_no_data_text: "Nothing here!\n\nTap to refresh",
+	flatlist_default_no_data_text: "Nothing here!\n\nPull to refresh",
 
 	value_not_available: "NA",
 

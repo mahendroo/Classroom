@@ -31,12 +31,6 @@ defaultInstance.interceptors.request.use(
 				config.headers[API_HEADERS.CONTENT_TYPE] = API_HEADERS.TYPE_RAW_DATA;
 			}
 		}
-		config.paramsSerializer = (params: any) => {
-			return qs.stringify(params, {
-				arrayFormat: "brackets", //
-				encode: false,
-			});
-		};
 		return config;
 	},
 	(error: any) => {

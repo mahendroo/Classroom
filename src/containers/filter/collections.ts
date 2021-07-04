@@ -2,7 +2,7 @@ import { LegacyRef } from "react";
 import { TextInput } from "react-native";
 import { GestureResponderEvent } from "react-native";
 import { emptyFunction } from "../../utils/globalFunctions";
-import { ClassDataType } from "../student-list/collections";
+import { ClassDataType, ClassSectionType, IndividualClassInfoType } from "../student-list/collections";
 
 type StringOrUndefined = string | undefined
 
@@ -20,8 +20,8 @@ export interface FilterRequest {
     student_id: string,
     first_name: string,
     last_name: string,
-    class_name: string,
-    section: string,
+    class: IndividualClassInfoType | undefined,
+    section: ClassSectionType | undefined,
     page: number,
     limit: number,
 }
@@ -48,8 +48,8 @@ export const filterRequestDefaultState: FilterRequest = {
     student_id: "",
     first_name: "",
     last_name: "",
-    class_name: "",
-    section: "",
+    class: undefined,
+    section: undefined,
     page: 1,
     limit: 10,
 }
@@ -63,6 +63,10 @@ export interface FilterProps {
 
 export interface FilterState {
     filterState: FilterRequest,
+    showClassPicker: boolean,
+    showSectionPicker: boolean,
+    selectedClassIndex: number | undefined,
+    selectedSectionIndex: number | undefined
 }
 
 export const defaultFilterProps: FilterProps = {

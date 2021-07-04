@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Pressable, Text, TextInput, View } from 'react-native'
+import { Keyboard, Pressable, Text, TextInput, View } from 'react-native'
 import { AppImageIcon } from '../../components/AppImageIcon'
 import { images } from '../../utils/constants/assets'
 import { emptyFunction } from '../../utils/globalFunctions'
@@ -10,20 +10,21 @@ export class FilterOptionItem extends Component<Readonly<FilterOptionItemProps>,
 
 
     render() {
-        const label = this.props.label
-        const value = this.props.value
-        const onChangeText = this.props.onChangeText
-        const placeholder = this.props.placeholder
-        const ref = this.props.ref
-        const isDropdown = this.props.isDropdown
-        const onPress = this.props.onPress ? this.props.onPress : emptyFunction
+
+        const { label, value, onChangeText, placeholder, ref, isDropdown, onPress = emptyFunction } = this.props;
 
         return (
             <View style={styles.filterOptionItemContainerStyle}>
                 <Text style={styles.filterOptionLabelStyle}>{label}</Text>
                 {!isDropdown ?
                     <View style={styles.filterOptionsInputWrapper}>
-                        <TextInput style={styles.filterOptionTextInputStyle} value={value} ref={ref} onChangeText={onChangeText} />
+                        <TextInput
+                            style={styles.filterOptionTextInputStyle}
+                            value={value} ref={ref}
+                            onChangeText={onChangeText}
+                            returnKeyType={'done'}
+                            onSubmitEditing={() => Keyboard.dismiss()}
+                            blurOnSubmit={false} />
                     </View>
                     :
                     <Pressable onPress={onPress} style={({ pressed }) => [styles.filterOptionsInputWrapper, { opacity: pressed ? 0.4 : 1 }]}>

@@ -30,6 +30,7 @@ export interface CustomFlatListState {
  * @param hideRefreshLoader: Whether list respective loader should be visible at or not. Default is false.
  * @param footerComponent: Custom Footer should be shown once all data has been loaded. Defaut is blank View with some static padding and background color.
  * @param flatlistWrapper: The connected Action function to make API request.
+ * @param hardRefresh: To give parent control for refreshing the list.
  * 
  */
 interface CustomFlatlistAddOnsProps {

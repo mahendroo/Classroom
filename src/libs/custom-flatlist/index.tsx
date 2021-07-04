@@ -266,21 +266,3 @@ const ConnectedCustomFlatlist = connect(null, { flatlistWrapper })(CustomFlatLis
 export default forwardRef<CustomFlatList, CustomFlatlistProps>((props: CustomFlatlistProps, ref: any) => {
 	return <ConnectedCustomFlatlist {...props} ref={ref} />;
 })
-
-// export default connect(null, { flatlistWrapper })(CustomFlatList);
-
-// Example Usage
-// 			<CustomFlatList
-// 				requestUrl="job-post/"
-// 				requestParams={{
-// 					status: 1,
-// 					radius: 1000,
-// 					lat: -33,
-// 					lng: 151,
-// 				}}
-// 				ref={this.customFlatList}
-// 				renderItem={
-// 					({ item, index }) => <View style={{ backgroundColor: 'red', margin: 20, height: 40 }}><Text>{item.title}</Text></View>
-// 				}
-// 			// data={[]}
-// 			/>	

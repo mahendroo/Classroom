@@ -111,4 +111,12 @@ export const globalStyles = StyleSheet.create({
 		marginLeft: 8,
 		backgroundColor: colors.dot_background,
 	},
+	draggableViewStyle: {
+		width: 50,
+		height: 5,
+		borderRadius: 4,
+		backgroundColor: colors.secondary_action_text_theme,
+		alignSelf: 'center',
+		marginVertical: dimensConstants.standard_margin_vertical
+	},
 });

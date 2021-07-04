@@ -48,8 +48,8 @@ class Homepage extends Component<Readonly<any>, HompepageState> {
         let fullName = firstName + lastName;
 
         tempFilterApiRequest.name = isNotEmpty(fullName) ? [fullName] : []
-        tempFilterApiRequest.class_name = isNotEmpty(newFilterRequest.class_name) ? newFilterRequest.class_name?.split(",") : []
-        tempFilterApiRequest.section = isNotEmpty(newFilterRequest.section) ? newFilterRequest.section?.split(",") : []
+        tempFilterApiRequest.class_name = newFilterRequest.class ? [newFilterRequest.class?.class_name] : []
+        tempFilterApiRequest.section = newFilterRequest.section ? newFilterRequest.section?.section ? [newFilterRequest.section?.section] : [] : []
 
         this.setState({ filterApiRequest: tempFilterApiRequest, filterState: newFilterRequest }, () => {
             logOnConsole(this.state.filterApiRequest)
@@ -64,6 +64,7 @@ class Homepage extends Component<Readonly<any>, HompepageState> {
                 <View style={globalStyles.flex1WithBackground}>
                     <CustomFlatlist
                         requestUrl={END_POINTS.filterStudents}
+                        shouldRefreshOnTap={false}
                         ref={this.customFlatlistRef}
                         requestData={this.state.filterApiRequest}
                         renderItem={
