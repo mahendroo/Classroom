@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     studentCardWrapperStyle: {
         height: dimensConstants.standard_card_height,
         ...elevationShadowStyle(8),
+        marginHorizontal: dimensConstants.standard_margin_horizontal,
         justifyContent: 'center',
     },
     studentCardContainerStyle: {

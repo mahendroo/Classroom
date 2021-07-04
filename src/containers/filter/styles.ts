@@ -2,10 +2,19 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../utils/constants/colors";
 import { dimensConstants } from "../../utils/constants/dimensConstant";
 import { fontSize } from "../../utils/constants/fonts";
+import { isAndroid } from "../../utils/globalFunctions";
 import { globalStyles } from "../../utils/globalStyles";
 
 export const styles = StyleSheet.create({
     filterOptionsInputWrapper: {
+        borderRadius: 4,
+        borderColor: colors.secondary_action_text_theme,
+        padding: isAndroid() ? 5 : 10,
+        borderWidth: 1,
+        marginTop: 10,
+        flexDirection: 'row',
+    },
+    filterOptionsDropdownWrapper: {
         borderRadius: 4,
         borderColor: colors.secondary_action_text_theme,
         padding: 10,
@@ -49,11 +58,14 @@ export const styles = StyleSheet.create({
     },
     filterOptionTextInputStyle: {
         margin: 2,
-        width: '100%'
+        width: '100%',
+        padding: 0,
     },
     filterOptionDropdownTextStyle: {
         flex: 1,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginVertical: isAndroid() ? 7 : 0,
+        marginHorizontal: isAndroid() ? 4 : 0
     },
     filterOptionsDropdownIconStyle: {
         alignSelf: 'flex-end'

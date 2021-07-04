@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         flex: 1,
     },
     flatListStyle: {
-        marginHorizontal: 20,
+        // marginHorizontal: 20,
         marginTop: 20,
         justifyContent: "center",
     },

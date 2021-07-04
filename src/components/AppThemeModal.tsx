@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 12,
         paddingBottom: dimensConstants.standard_padding,
         paddingHorizontal: dimensConstants.standard_padding,
+        height: "80%",
     },
     backgroundOverlay: {
         flex: 1,

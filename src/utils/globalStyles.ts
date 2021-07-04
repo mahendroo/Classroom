@@ -119,4 +119,7 @@ export const globalStyles = StyleSheet.create({
 		alignSelf: 'center',
 		marginVertical: dimensConstants.standard_margin_vertical
 	},
+	emptyView: {
+		height: dimensConstants.button_height,
+	}
 });

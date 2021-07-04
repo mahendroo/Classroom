@@ -9,6 +9,7 @@ import { apiConstants } from '../../utils/constants/apiConstants';
 import { appConstants } from '../../utils/constants/appConstants';
 import { STRING_CONSTANTS } from '../../utils/constants/stringConstants'
 import { logOnConsole } from '../../utils/globalFunctions';
+import { globalStyles } from '../../utils/globalStyles';
 import { defaultFilterProps, FilterProps, filterRequestDefaultState, FilterState } from './collections';
 import { FilterOptionItem } from './FilterOptionItem';
 import { styles } from './styles';
@@ -116,29 +117,29 @@ class Filter extends Component<Readonly<FilterProps>, FilterState> {
         return (
             <View>
                 <View style={styles.draggableViewStyle} />
-                <View style={styles.filterHeaderContainerStyle}>
-                    <Text style={styles.filterHeaderTextStyle}>{STRING_CONSTANTS.label_filter}</Text>
-                    <Text style={styles.filterCancelTextStyle} onPress={this.onResetTapped}>{STRING_CONSTANTS.label_reset}</Text>
-                </View>
-                <ScrollView >
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={styles.filterHeaderContainerStyle}>
+                        <Text style={styles.filterHeaderTextStyle}>{STRING_CONSTANTS.label_filter}</Text>
+                        <Text style={styles.filterCancelTextStyle} onPress={this.onResetTapped}>{STRING_CONSTANTS.label_reset}</Text>
+                    </View>
                     <FilterOptionItem label={STRING_CONSTANTS.label_student_id} value={this.state.filterState.student_id} ref={this.studentIdRef} onChangeText={(text) => this.updateTextState(this.studentIdRef, text)} />
                     <FilterOptionItem label={STRING_CONSTANTS.label_first_name} value={this.state.filterState.first_name} ref={this.firstNameRef} onChangeText={(text) => this.updateTextState(this.firstNameRef, text)} />
                     <FilterOptionItem label={STRING_CONSTANTS.label_last_name} value={this.state.filterState.last_name} ref={this.lastNameRef} onChangeText={(text) => this.updateTextState(this.lastNameRef, text)} />
                     <FilterOptionItem label={STRING_CONSTANTS.label_class} value={this.state.filterState.class?.class_name} placeholder={STRING_CONSTANTS.label_select_class} isDropdown={true} onPress={this.toggleClassPickerModal} />
                     <FilterOptionItem label={STRING_CONSTANTS.label_section} value={this.state.filterState.section?.section} placeholder={STRING_CONSTANTS.label_select_section} isDropdown={true} onPress={this.toggleSectionPickerModal} />
 
+                    <View style={styles.filterSeparationBorderStyle} />
+
+                    <AppButton label={STRING_CONSTANTS.label_apply_filter} onPress={() => {
+                        logOnConsole(this.state.filterState)
+                        this.props.onFilterApply(this.state.filterState)
+                        this.props.onCancelTap();
+                    }
+                    } />
+
+                    <Text style={styles.filterCancelActionStyle} onPress={this.props.onCancelTap}>{STRING_CONSTANTS.label_cancel}</Text>
+                    <View style={globalStyles.emptyView} />
                 </ScrollView>
-                <View style={styles.filterSeparationBorderStyle} />
-
-                <AppButton label={STRING_CONSTANTS.label_apply_filter} onPress={() => {
-                    logOnConsole(this.state.filterState)
-                    this.props.onFilterApply(this.state.filterState)
-                    this.props.onCancelTap();
-                }
-                } />
-
-                <Text style={styles.filterCancelActionStyle} onPress={this.props.onCancelTap}>{STRING_CONSTANTS.label_cancel}</Text>
-
                 {this.state.showClassPicker ?
                     <AppPicker
                         data={this.props.classData?.classes}

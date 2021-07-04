@@ -48,7 +48,7 @@ export const AppPicker = ({ visible, onDismiss, ...props }: AppPickerProps) => {
                                 );
                             })}
 
-                            <View style={styles.bottomMarginView} />
+                            <View style={globalStyles.emptyView} />
                         </ScrollView>
                     </>
                 );
@@ -84,7 +84,4 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginHorizontal: dimensConstants.standard_margin_horizontal
     },
-    bottomMarginView: {
-        height: dimensConstants.button_height
-    }
 });
