@@ -48,6 +48,7 @@ defaultInstance.interceptors.request.use(
 
 defaultInstance.interceptors.response.use(
 	(response: any) => {
+		logOnConsole("API Response", response.data)
 		return response.data;
 	},
 	(error: any) => {

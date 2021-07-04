@@ -45,6 +45,7 @@ interface CustomFlatlistAddOnsProps {
     hideRefreshLoader?: boolean,
     footerComponent?: any,
     flatlistWrapper: Function,
+    hardRefresh?: Function,
 }
 
 interface CustomisedFlatListProps extends FlatListProps<any>, CustomFlatlistAddOnsProps {

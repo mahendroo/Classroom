@@ -1,3 +1,4 @@
+import { FilterApiRequest, FilterRequest } from "../filter/collections"
 
 /**
  * Not in use, as the data doesn't have specific format
@@ -104,6 +105,12 @@ export interface ClassDetailResponse {
     data: ClassDataType,
     status: number,
     message: StringOrNull,
+}
+
+export interface HompepageState {
+    showFilterModal: boolean,
+    filterState: FilterRequest,
+    filterApiRequest: FilterApiRequest
 }
 
 export const sampleStudentInfo: StudentAllInfoType = {

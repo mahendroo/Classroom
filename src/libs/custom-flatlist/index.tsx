@@ -38,6 +38,7 @@ class CustomFlatList extends Component<CustomFlatlistProps, CustomFlatListState>
 		};
 	}
 	componentDidMount() {
+		this.props.hardRefresh && this.props.hardRefresh(this.didFocus);
 		if (this.props.shouldRefreshOnFocus !== true) {
 			this.didFocus();
 		}

@@ -12,6 +12,7 @@ export class FilterOptionItem extends Component<Readonly<FilterOptionItemProps>,
     render() {
         const label = this.props.label
         const value = this.props.value
+        const onChangeText = this.props.onChangeText
         const placeholder = this.props.placeholder
         const ref = this.props.ref
         const isDropdown = this.props.isDropdown
@@ -22,7 +23,7 @@ export class FilterOptionItem extends Component<Readonly<FilterOptionItemProps>,
                 <Text style={styles.filterOptionLabelStyle}>{label}</Text>
                 {!isDropdown ?
                     <View style={styles.filterOptionsInputWrapper}>
-                        <TextInput style={styles.filterOptionTextInputStyle} value={value} ref={ref} />
+                        <TextInput style={styles.filterOptionTextInputStyle} value={value} ref={ref} onChangeText={onChangeText} />
                     </View>
                     :
                     <Pressable onPress={onPress} style={({ pressed }) => [styles.filterOptionsInputWrapper, { opacity: pressed ? 0.4 : 1 }]}>

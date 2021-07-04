@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
  */
 
 export interface AppButtonProps {
-	onPress?: null | ((event: GestureResponderEvent) => void),
+	onPress?: null | ((event: GestureResponderEvent) => void) | Function,
 	wrapperStyle?: StyleProp<ViewStyle>,
 	textStyle?: StyleProp<TextStyle>,
 	label: string,

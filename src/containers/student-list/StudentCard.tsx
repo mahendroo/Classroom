@@ -13,7 +13,7 @@ export class StudentCard extends Component<Readonly<StudentCardProps>, Readonly<
     render() {
         const studentInfo = this.props.studentInfo
         return (
-            <View style={styles.studentCardWrapperStyle}>
+            <View style={styles.studentCardWrapperStyle} key={studentInfo?._id}>
                 <View style={styles.studentCardContainerStyle}>
                     <View style={styles.studentCardUpperBodyContainerStyle}>
                         <Image

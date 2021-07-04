@@ -31,7 +31,7 @@ export const colors = {
 	secondary_action_button_stroke_theme: base_theme_color,
 
 	// Translucent
-	modal_background: "rgba(0,0,0,0.8)",
+	modal_background: "rgba(0,0,0,0.4)",
 	dot_background: "#E05CB4",
 	text_color: "#152250",
 

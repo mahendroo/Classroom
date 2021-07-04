@@ -1,5 +1,5 @@
 import {
-	isNotEmpty,
+	isNotEmpty, logOnConsole,
 } from "../utils/globalFunctions";
 import { apiConstants } from "../utils/constants/apiConstants";
 import { actionCreators } from "../actions/actionCreators";
@@ -17,6 +17,7 @@ export const flatlistWrapper = (
 	succesCallback: Function,
 	errorCallback: Function,
 ) => {
+	logOnConsole("Body Request", body)
 	return (dispatch: any) => {
 		if (shouldShowTopLoaderOnListing(typeOfRequest)) {
 			showLoader(true, dispatch);
